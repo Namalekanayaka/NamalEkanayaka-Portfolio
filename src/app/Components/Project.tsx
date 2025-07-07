@@ -36,7 +36,7 @@ const Project = () => {
             <div className="flex flex-col h-full">
               <h3 className="text-lg font-semibold text-white">
                 {project.title}
-                <div>
+                <div className="flex flex-wrap gap-2 mt-1">
                   {project.tags.map((tag, Index) => (
                     <span
                       key={Index}
