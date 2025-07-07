@@ -27,7 +27,14 @@ const Project = () => {
       </h2>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         {projects.map((project, index) => (
-          <div key={index}>{project.title}</div>
+          <div
+            key={index}
+            className="bg-gray-800/30 backdrop-blur-sm rounded-lg p-6 border border-gray-700/50 hover:border-purple-500 transition-colors hoevr:shadow-sm"
+          >
+            <div>
+              
+            {project.title}
+          </div>
         ))}
       </div>
     </section>
