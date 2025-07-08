@@ -82,7 +82,6 @@ export default function ProjectModal({ project, onClose, onNext, onPrev }) {
           </div>
         </div>
 
-        {/* Compact Footer with Navigation */}
         <div className="bg-gray-800 border-t border-gray-700 p-3 sm:p-4">
           <div className="flex justify-between items-center">
             <button
