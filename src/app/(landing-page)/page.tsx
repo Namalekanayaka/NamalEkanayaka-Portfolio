@@ -5,18 +5,15 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-purple-900">
       <div className="container mx-auto px-4 py-8 pb-20 sm:px-8 sm:py-20 font-[family-name:var(--font-geist-sans)]">
         <div className="relative overflow-hidden">
-          {/* Enhanced background effects */}
-          <div className="absolute inset-0 opacity-20 ">
+          <div className="absolute inset-0 opacity-20">
             <div className="absolute -top-10 -right-10 sm:w-[700px] sm:h-[700px] w-[350px] h-[350px] bg-purple-700/40 rounded-full blur-3xl animate-pulse"></div>
             <div className="absolute top-4 right-4 sm:w-[500px] sm:h-[500px] w-[200px] h-[200px] bg-purple-500/50 rounded-full blur-2xl animate-pulse delay-1000"></div>
             <div className="absolute top-8 right-8 sm:w-[350px] sm:h-[350px] w-[120px] h-[120px] bg-purple-400/60 rounded-full blur-xl animate-pulse delay-2000"></div>
 
-            {/* Additional floating elements */}
             <div className="absolute top-20 left-10 sm:w-[200px] sm:h-[200px] w-[80px] h-[80px] bg-purple-600/30 rounded-full blur-2xl animate-bounce"></div>
             <div className="absolute bottom-20 left-20 sm:w-[150px] sm:h-[150px] w-[60px] h-[60px] bg-purple-400/40 rounded-full blur-xl animate-pulse delay-3000"></div>
           </div>
 
-          {/* Main content */}
           <div className="relative z-10 text-center">
             <div className="mb-8">
               <div className="inline-block">
@@ -26,7 +23,7 @@ export default function Home() {
               </div>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-tight ">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-tight">
               <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                 Software Engineer
               </span>
@@ -35,8 +32,8 @@ export default function Home() {
               </span>
             </h1>
 
-            <div className="  mt-8 max-w-2xl text-center  align-items-center justify-center ">
-              <p className="text-xl sm:text-2xl text-gray-300 leading-relaxed font-light ">
+            <div className="mt-8 max-w-2xl mx-auto">
+              <p className="text-xl sm:text-2xl text-gray-300 leading-relaxed font-light">
                 Crafting digital experiences that blend beautiful design with
                 powerful functionality. Let's build something{" "}
                 <span className="text-purple-400 font-medium">
@@ -46,7 +43,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row mt-12 gap-6 items-start align-items-center justify-center">
+            <div className="flex flex-col sm:flex-row mt-12 gap-6 items-center justify-center">
               <button className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold rounded-xl overflow-hidden transition-all duration-300 hover:from-purple-700 hover:to-purple-800 hover:shadow-2xl hover:shadow-purple-500/25 hover:scale-105 active:scale-95">
                 <span className="relative z-10 flex items-center gap-2">
                   About Me
@@ -88,13 +85,11 @@ export default function Home() {
               </button>
             </div>
 
-            {/* Decorative elements */}
             <div className="absolute top-0 left-0 w-20 h-20 border-l-2 border-t-2 border-purple-500/50 rounded-tl-lg"></div>
             <div className="absolute bottom-0 right-0 w-20 h-20 border-r-2 border-b-2 border-purple-500/50 rounded-br-lg"></div>
           </div>
         </div>
 
-        {/* Enhanced spacing before Project component */}
         <div className="mt-24 relative">
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-16 bg-gradient-to-b from-purple-500 to-transparent"></div>
           <Project />
