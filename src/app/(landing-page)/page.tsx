@@ -35,7 +35,7 @@ export default function Home() {
             <div className="mt-8 max-w-2xl mx-auto">
               <p className="text-xl sm:text-2xl text-gray-300 leading-relaxed font-light">
                 Crafting digital experiences that blend beautiful design with
-                powerful functionality. Let's build something{" "}
+                powerful functionality. Let&apos;s build something{" "}
                 <span className="text-purple-400 font-medium">
                   extraordinary
                 </span>{" "}

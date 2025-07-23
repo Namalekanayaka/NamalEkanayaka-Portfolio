@@ -1,26 +1,25 @@
 import sharp from "sharp";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
-//import { mongooseAdapter } from "@payloadcms/db-mongodb";//
 import { postgresAdapter } from "@payloadcms/db-postgres";
 import { buildConfig } from "payload";
 
 export default buildConfig({
-  // If you'd like to use Rich Text, pass your editor here
+  // Rich Text Editor
   editor: lexicalEditor(),
 
-  // Define and configure your collections in this array
+  // Define collections here
   collections: [],
 
-  // Your Payload secret - should be a complex and secure string, unguessable
-  secret: process.env.PAYLOAD_SECRET || "",
-  // Whichever Database Adapter you're using should go here
-  // Mongoose is shown as an example, but you can also use Postgres
+  // Secret for Payload Admin UI sessions
+  secret: process.env.PAYLOAD_SECRET || "dev-secret",
+
+  // Use Postgres DB adapter (pass config, not a Pool instance)
   db: postgresAdapter({
-    url: process.env.DATABASE_URI || "",
+    pool: {
+      connectionString: process.env.DATABASE_URI || "",
+    },
   }),
-  // If you want to resize images, crop, set focal point, etc.
-  // make sure to install it and pass it to the config.
-  // This is optional - if you don't need to do these things,
-  // you don't need it!
+
+  // Image processing
   sharp,
 });

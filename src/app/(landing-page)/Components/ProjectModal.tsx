@@ -1,7 +1,28 @@
 import { X } from "lucide-react";
 import Image from "next/image";
 
-export default function ProjectModal({ project, onClose, onNext, onPrev }) {
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  fullDescription: string;
+  image: string;
+  tags: string[];
+}
+
+interface ProjectModalProps {
+  project: Project;
+  onClose: () => void;
+  onNext: () => void;
+  onPrev: () => void;
+}
+
+export default function ProjectModal({
+  project,
+  onClose,
+  onNext,
+  onPrev,
+}: ProjectModalProps) {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75 z-50 p-2 sm:p-4">
       <div className="bg-gray-900 rounded-xl sm:rounded-2xl w-full max-w-sm sm:max-w-2xl md:max-w-4xl lg:max-w-6xl max-h-[98vh] sm:max-h-[95vh] overflow-hidden shadow-2xl transform transition-all duration-300 hover:scale-[1.01]">
