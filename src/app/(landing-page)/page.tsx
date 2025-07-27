@@ -1,6 +1,8 @@
 import React from "react";
 import Project from "./Components/Project";
 import Navbar from "./Components/navbar";
+import Image from "next/image";
+import Service from "./Components/Service";
 
 export default function Home() {
   return (
@@ -16,7 +18,7 @@ export default function Home() {
         <div className="text-center max-w-4xl mx-auto">
           {/* Main heading */}
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-tight mb-8">
-            Jonny Czar is
+            Namal Ekanayaka is
             <br />
             <span className="block">Experience Designer</span>
             <span className="block">at Hotjar</span>
@@ -27,13 +29,18 @@ export default function Home() {
             15 years of Design. Brazilian. Berlin based.
           </p>
 
-          {/* Profile image placeholder */}
+          {/* Profile image */}
+
+          {/* Profile image */}
           <div className="flex justify-center mb-16">
-            <div className="w-80 h-80 sm:w-96 sm:h-96 bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
-                alt="Jonny Czar - Experience Designer"
-                className="w-full h-full object-cover"
+            <div className="w-80 h-80 sm:w-96 sm:h-96 relative bg-gray-200 rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/namal.png"
+                alt="Namal Ekanayaka - Experience Designer"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 640px) 320px, 384px"
               />
             </div>
           </div>
@@ -53,6 +60,7 @@ export default function Home() {
         <div className="mt-24 relative">
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-16 bg-gradient-to-b from-yellow-400 to-transparent"></div>
           <Project />
+          <Service />
         </div>
       </div>
     </div>
