@@ -229,7 +229,7 @@ const Project = () => {
 
       <section id="projects" className="px-4 py-32 sm:px-6 lg:px-8 font-mono">
         {/* Section Header */}
-        <div className="text-center mb-16 project-animate">
+        <div className="text-center mb-12 project-animate">
           <div className="text-sm text-gray-400 mb-4">/featured-work/</div>
           <h2 className="text-4xl md:text-5xl font-light featured-title mb-4">
             Featured Projects

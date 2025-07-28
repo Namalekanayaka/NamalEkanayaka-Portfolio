@@ -23,7 +23,7 @@ export default function GhostTextAnimation() {
           <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
             <div className="ghost-slide">
               <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white leading-tight whitespace-nowrap">
-                WEB DEVELOPER
+                FULL STACK WEB DEVELOPER
               </h1>
             </div>
           </div>
