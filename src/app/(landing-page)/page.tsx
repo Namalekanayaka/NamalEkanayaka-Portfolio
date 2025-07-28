@@ -5,6 +5,7 @@ import Project from "./Components/Project";
 import Navbar from "./Components/navbar";
 import Image from "next/image";
 import Service from "./Components/Service";
+import Gost from "./Components/gost";
 
 // Custom hook for scroll animations
 const useScrollAnimation = () => {
@@ -111,6 +112,98 @@ export default function Home() {
               0 0 20px rgba(250, 204, 21, 0.6),
               0 0 30px rgba(250, 204, 21, 0.4);
           }
+        }
+
+        /* Gooey Marquee Effect */
+        @keyframes gooeyMarquee {
+          0% {
+            transform: translateX(0) scaleX(1);
+          }
+          25% {
+            transform: translateX(-20px) scaleX(1.1);
+          }
+          50% {
+            transform: translateX(-40px) scaleX(0.9);
+          }
+          75% {
+            transform: translateX(-20px) scaleX(1.05);
+          }
+          100% {
+            transform: translateX(0) scaleX(1);
+          }
+        }
+
+        @keyframes gooeyStretch {
+          0%,
+          100% {
+            transform: scaleX(1) scaleY(1);
+            filter: blur(0px);
+          }
+          25% {
+            transform: scaleX(1.2) scaleY(0.8);
+            filter: blur(1px);
+          }
+          50% {
+            transform: scaleX(0.8) scaleY(1.2);
+            filter: blur(0.5px);
+          }
+          75% {
+            transform: scaleX(1.1) scaleY(0.9);
+            filter: blur(0.3px);
+          }
+        }
+
+        @keyframes gooeyFloat {
+          0%,
+          100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          33% {
+            transform: translateY(-10px) rotate(1deg);
+          }
+          66% {
+            transform: translateY(5px) rotate(-1deg);
+          }
+        }
+
+        .gooey-marquee {
+          position: relative;
+          display: inline-block;
+          animation:
+            gooeyMarquee 8s ease-in-out infinite,
+            gooeyFloat 6s ease-in-out infinite;
+          transform-origin: center center;
+        }
+
+        .gooey-marquee::before {
+          content: "";
+          position: absolute;
+          top: -10px;
+          left: -10px;
+          right: -10px;
+          bottom: -10px;
+          background: radial-gradient(
+            circle,
+            rgba(250, 204, 21, 0.3) 0%,
+            transparent 70%
+          );
+          border-radius: 50px;
+          animation: gooeyStretch 4s ease-in-out infinite;
+          z-index: -1;
+          filter: blur(20px);
+        }
+
+        .gooey-marquee .gooey-text {
+          display: inline-block;
+          animation: gooeyStretch 3s ease-in-out infinite;
+          animation-delay: 0.5s;
+          position: relative;
+          z-index: 1;
+        }
+
+        /* Gooey filter for the container */
+        .gooey-container {
+          filter: url(#gooey);
         }
 
         .scroll-animate {
@@ -220,10 +313,26 @@ export default function Home() {
         }
       `}</style>
 
+      {/* SVG Filter for Gooey Effect */}
+      <svg width="0" height="0" style={{ position: "absolute" }}>
+        <defs>
+          <filter id="gooey">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+            <feColorMatrix
+              in="blur"
+              mode="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+              result="gooey"
+            />
+            <feComposite in="SourceGraphic" in2="gooey" operator="atop" />
+          </filter>
+        </defs>
+      </svg>
+
       {/* Header */}
       <header className="flex justify-between items-center p-6 border-b border-gray-800 opacity-0 slide-in-left">
         <div className="text-sm text-gray-400 font-mono typewriter">
-          /designer/
+          /developer/
         </div>
         <button className="text-sm border border-gray-600 px-4 py-2 hover:bg-gray-900 transition-all duration-300 font-mono hover:border-yellow-400 hover:text-yellow-400">
           contact
@@ -234,14 +343,19 @@ export default function Home() {
       <div className="container mx-auto px-4 py-16 font-mono">
         {/* Main content */}
         <div className="max-w-6xl mx-auto">
-          {/* Main heading */}
-          <div className="mb-12">
+          {/* Main heading with Gooey Marquee Effect */}
+          <div className="mb-12 gooey-container">
             <h1 className="text-5xl sm:text-6xl lg:text-8xl font-light text-yellow-400 leading-tight glow-text">
-              <span className="word-animation stagger-1">Namal</span>{" "}
-              <span className="word-animation stagger-2">Ekanayaka</span>
+              <span className="gooey-marquee">
+                <span className="gooey-text">Namal</span>
+              </span>{" "}
+              <span className="gooey-marquee" style={{ animationDelay: "1s" }}>
+                <span className="gooey-text">Ekanayaka</span>
+              </span>
             </h1>
+            <br />
             <div className="text-xl sm:text-2xl text-gray-400 mt-4 scroll-animate stagger-3">
-              <span className="text-reveal">Experience Designer at Hotjar</span>
+              <span className="text-reveal">Experience web deverloper</span>
             </div>
           </div>
 
@@ -267,11 +381,11 @@ export default function Home() {
                 /experience/
               </h3>
               <div className="text-sm leading-relaxed">
-                <p className="mb-2 word-animation stagger-1">15 years of</p>
+                <p className="mb-2 word-animation stagger-1">2 years of</p>
                 <p className="mb-2 word-animation stagger-2">designing</p>
                 <p className="mb-2 word-animation stagger-3">digital</p>
                 <p className="mb-2 word-animation stagger-4">experiences</p>
-                <p className="word-animation stagger-5">at Hotjar</p>
+                <p className="word-animation stagger-5"></p>
               </div>
             </div>
 
@@ -302,10 +416,10 @@ export default function Home() {
                 /location/
               </h3>
               <div className="text-sm leading-relaxed">
-                <p className="mb-2 word-animation stagger-1">Brazilian</p>
+                <p className="mb-2 word-animation stagger-1">Srilankan</p>
                 <p className="mb-2 word-animation stagger-2">designer</p>
                 <p className="mb-2 word-animation stagger-3">based in</p>
-                <p className="mb-2 word-animation stagger-4">Berlin,</p>
+                <p className="mb-2 word-animation stagger-4">Kandy,</p>
                 <p className="word-animation stagger-5">Germany</p>
               </div>
             </div>
@@ -457,13 +571,14 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <Gost />
 
         {/* Featured Projects section - keeping original functionality */}
         <div className="mt-24 relative">
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-16 bg-gradient-to-b from-yellow-400 to-transparent"></div>
 
           {/* Projects section with original styling restored */}
-          <div className="bg-white text-black rounded-lg p-8 mb-12">
+          <div className=" text-black rounded-lg p-8 mb-12">
             <Project />
           </div>
 
